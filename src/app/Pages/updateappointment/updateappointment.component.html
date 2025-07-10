@@ -1,0 +1,54 @@
+<app-navbar-client></app-navbar-client>
+<section class="d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto" [formGroup]="appointmentForm">
+                <div class="">
+                    <p class="fs-1 text-white text-center">عدل موعدك</p>
+                    <div class="d-flex ">
+                        <div class="card bg-white w-75 p-5 rounded-0 border-0 d-flex flex-column justify-content-between">
+                            <select class="form-control" formControlName="dayOfWeek" (change)="selectDay($event)">
+                                <option value="">يرجى اختيار اليوم</option>
+                                @for (item of days; track $index) {
+                                  <option [attr.data-id]="$index" [value]="item">{{ item }}</option>
+                                }
+                              </select>
+                              
+                            <!-- @if(errorDate)
+                            {
+                                <span class="alert alert-danger">{{errorDate}}</span>
+                            } -->
+                            <select class="form-control" formControlName="time">
+                                <option value="" disabled selected hidden>الموعد</option>
+                                @for (item of times; track $index) 
+                                {
+                                    
+                                        <option value="{{item}}" >{{item}}</option>
+                                    
+
+                                }
+                            </select>
+                            
+                            <div class=" d-flex justify-content-between">
+                                <button class="btn btn-primary px-5">الرجوع</button>
+                                <button (click)="submit()" class="btn btn-primary next px-5">التالي</button>
+                            </div>
+                        </div>
+                        <div class="card bg-white w-25 rounded-0 border-0">
+                            <div class=" infos">
+                                <img class="w-100 rounded-circle" [src]="'https://graduationproject2025.runasp.net/' +Clinic.logo" alt="">
+                                <h4 class="text-center text-primary"> {{Clinic.name}} </h4>
+                                <p class="text-center"> {{Clinic.address}} </p>
+                                <a [href]="'https://www.google.com/maps?q=' + Clinic.latitude + ',' + Clinic.longitude" target="_blank" class="text-decoration-none text-primary" style="display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-map-marked-alt"></i><span>عرض الموقع على الخريطة</span></a>
+                              
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    </div>
+</section>

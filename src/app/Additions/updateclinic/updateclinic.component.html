@@ -1,0 +1,93 @@
+<app-navbar-doctor></app-navbar-doctor>
+
+<section class="d-flex justify-content-center align-items-center py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 mx-auto" [formGroup]="clinic">
+          <p class="fs-1 text-white text-center">عدل عيادتك</p>
+          
+          <div class="d-flex flex-column flex-lg-row gap-0"> 
+            
+            <div class="card bg-white rounded-0 border-0 col-lg-3 text-center">
+              <label class="upload-circle mx-auto mt-5">
+                <i class="fa-solid fa-image"></i>
+                <input [src]="imageUrl" formControlName="Logo" type="file" accept="image/*" (change)="onFileSelected($event)" />
+              </label>
+              <p>اضافة اللوجو الخاص بك</p>
+              <div class="d-flex flex-column">
+                @for(item of days ; track $index)
+              {
+                <button (click)="removeDay($index)" class="btn btn-danger mt-2">{{item.dayOfWeek}} حذف اليوم</button>
+              }
+              </div>
+            </div>
+  
+            <div class="card bg-white p-4 rounded-0 border-0 col-lg-9">
+                <p class="text-danger my-2">نرجو ان تكون في مكان عيادتك لتعين الموقع بشكل صحيح</p>
+                
+               
+              <div id="map" style="height: 300px;"></div>
+  
+              
+  
+              <input [value]="clincicdata?.name" formControlName="Name" placeholder="الاسم" class="form-control my-2" type="text">
+              <input [value]="clincicdata?.address" formControlName="Address" placeholder="العنوان" class="form-control my-2" type="text">
+              <select [value]="clincicdata?.government" name=""  class="form-control" id=""  formControlName="Government">
+                <option value="">المحافظه</option>
+                @for(item of egyptGovernorates; track $index)
+                {
+                  <option value="{{item}}">{{item}}</option>
+                }
+              </select>
+              <input [value]="clincicdata?.price" formControlName="Price" placeholder="سعر الكشف" class="form-control my-2" type="number">
+              <select [value]="clincicdata?.visitDuration" name=""  class="form-control" id="" formControlName="VisitDuration">
+                <option value="">مدة الكشف</option>
+                @for(item of minutesArray; track $index)
+                {
+                  <option value="{{item}}">{{item}} دقيقة</option>
+                }
+              </select>
+              
+              
+              <select name=""  class="form-control" id="" #youm>
+                
+                <option value="">يرجى اختيار اليوم</option>
+
+                @for(item of availableDays; track $index)
+                {
+                  <option value="{{item}}">{{item}}</option>
+                }
+              </select>
+              
+             <div class="d-flex gap-3">
+              <select  name=""  class="form-control w-50" id="" #from (change)="AvilableHoursTo($event)">
+               
+                <option value="">من</option>
+                
+                @for(item of HourArrayFrom; track $index)
+                {
+                  <option value="{{item}}">{{item}}</option>
+                }
+              </select>
+              <select name=""  class="form-control w-50" id="" #to>
+                
+                  <option value="">الى</option>
+
+                
+                @for(item of HourArrayTo; track $index)
+                {
+                  <option value="{{item}}">{{item}}</option>
+                }
+              </select>
+             </div>
+              <div class="d-flex justify-content-between my-3">
+                <button (click)="addDay()" class="btn btn-primary px-5">اضافة يوم</button>
+                <button type="submit"  (click)="submit()" class="btn btn-primary next px-5">تعديل العيادة</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,85 @@
+<app-navbar-doctor></app-navbar-doctor>
+@if(Clinics.length == 0)
+{
+  <div class="text-center fs-1 text-danger my-2">
+    <p>لايوجد عيادات لعرضها</p>
+    <img class="w-50" src="../../../assets/images/noData.jpg" alt="">
+  </div>
+}
+ @for (item of Clinics; track $index)
+{ 
+
+  <div class="container py-5 w-75 my-5">
+    <div class="card p-4 shadow rounded-4">
+      <div class="row align-items-center">
+  
+        <div class="col-md-3 text-center mb-3 mb-md-0">
+          <img [src]="'https://graduationproject2025.runasp.net/' + item.doctorProfilePicture"
+               alt="صورة الدكتورة"
+               class="rounded-circle border border-2 shadow-sm"
+               style="width: 120px; height: 120px; object-fit: cover;">
+        </div>
+  
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <div>
+              <h4 class="mb-1 text-primary">{{item.name}}</h4>
+              <h6 class="text-muted">{{item.doctorSpecialty}}</h6>
+              <a [href]="'https://www.google.com/maps?q=' + item.latitude + ',' + item.longitude" target="_blank" class="d-block text-decoration-none text-primary" style="display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-map-marked-alt"></i><span>عرض الموقع على الخريطة</span></a>
+
+            </div>
+          </div>
+  
+          <ul class="list-unstyled fs-5">
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-id-badge text-secondary me-2"></i>
+              <span>بطاقة تعريف</span>
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-map-marker-alt text-danger me-2"></i>
+              <span>{{item.address}}</span>
+
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-map-marker-alt text-danger me-2"></i>
+              <span>{{item.government}}</span>
+
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-money-bill-wave text-success me-2"></i>
+              <span>الكشف: {{item.price}} جنيه</span>
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-stopwatch text-warning me-2"></i>
+              <span>مدة الانتظار: <span class="text-primary">{{item.visitDuration}} دقيقة</span></span>
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-phone-alt text-info me-2"></i>
+              <span>{{item.doctorPhone}} - سعر المكالمة عادية</span>
+            </li>
+            <li>
+              <a href="https://wa.me/2{{item.doctorPhone}}?text=السلام%20عليكم%20أنا%20مهتم%20بخدماتكم" 
+              target="_blank" 
+              style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: background-color 0.3s;">
+              <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
+              تواصل على واتساب
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="col-md-3 text-center mb-3  mb-md-0">
+          <a [routerLink]="['/updateclinic', item.id]">
+            <button  class="btn btn-primary btn-lg w-100 rounded-pill">
+            <i class="fa-solid fa-pen"></i> تعديل العيادة
+            </button>
+          </a>
+          <button (click)="deleteClinic(item.id)" class="btn btn-danger btn-lg w-100 rounded-pill mt-2">
+            <i class="fa-solid fa-trash"></i> حذف العيادة
+          </button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+} 

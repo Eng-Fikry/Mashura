@@ -1,0 +1,188 @@
+@if(isLogin)
+          {
+            <app-navbar-client></app-navbar-client>
+          }
+          @else 
+          {
+            <app-navbar-client-notlogin></app-navbar-client-notlogin>
+          }
+
+          <!-- <select class="form-control mt-3" name="" id="" (change)="filtretion($event)">
+            <option value="">اختر المحافظه</option>
+            <option value="all">عرض الكل</option>
+            @for(item  of egyptGovernorates; track $index)
+            {
+              <option value="{{item}}">{{item}}</option>
+            }
+          </select> -->
+
+          <!-- From Uiverse.io by gharsh11032000 --> 
+<!-- <div class="menu">
+  <div class="item">
+    <a href="#" class="link">
+      <span> Our Services </span>
+      <svg viewBox="0 0 360 360" xml:space="preserve">
+        <g id="SVGRepo_iconCarrier">
+          <path
+            id="XMLID_225_"
+            d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
+          ></path>
+        </g>
+      </svg>
+    </a>
+    <div class="submenu">
+      <div class="submenu-item">
+        <a href="#" class="submenu-link"> Development </a>
+      </div>
+      <div class="submenu-item">
+        <a href="#" class="submenu-link"> Design </a>
+      </div>
+      <div class="submenu-item">
+        <a href="#" class="submenu-link"> Marketing </a>
+      </div>
+      <div class="submenu-item">
+        <a href="#" class="submenu-link"> SEO </a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container d-flex justify-content-center mt-3">
+  <div class="dropdown-container" (click)="toggleDropdown()" [class.open]="dropdownOpen">
+    <div class="dropdown-selected">
+      <span>{{ selectedGovernorate || 'اختر المحافظة' }}</span>
+      <svg viewBox="0 0 360 360" xml:space="preserve">
+        <g><path d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" /></g>
+      </svg>
+    </div>
+  
+    @if (dropdownOpen) {
+      <div class="dropdown-list">
+        <div class="dropdown-item" (click)="selectGovernorate('عرض الكل')">عرض الكل</div>
+  
+        @for (item of egyptGovernorates; track $index) {
+          <div class="dropdown-item" (click)="selectGovernorate(item)">
+            {{ item }}
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
+
+@if(Filtration.length == 0)
+{
+  <div class="text-center fs-1 text-danger my-2">
+    <p>لايوجد عيادات لعرضها</p>
+    <img class="w-50" src="../../../assets/images/noData.jpg" alt="">
+  </div>
+
+}
+
+
+
+
+@if(!showMessage())
+{
+  @for (item of Filtration; track $index)
+{ 
+<div class="container py-5 w-75 my-5">
+    <div class="card p-4 shadow rounded-4">
+      <div class="row align-items-center">
+  
+        <div class="col-md-3 text-center mb-3 mb-md-0">
+          <img [src]="'https://graduationproject2025.runasp.net/' + item.doctorProfilePicture"
+               alt="صورة الدكتورة"
+               class="rounded-circle border border-2 shadow-sm"
+               style="width: 120px; height: 120px; object-fit: cover;">
+        </div>
+  
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <div>
+              <h4 class="mb-1 text-primary">{{item.name}}</h4>
+              <h6 class="text-muted">{{item.doctorSpecialty}}</h6>
+              <a [href]="'https://www.google.com/maps?q=' + item.latitude + ',' + item.longitude" target="_blank" class="d-block text-decoration-none text-primary" style="display: inline-flex; align-items: center; gap: 5px;"><i class="fas fa-map-marked-alt"></i><span>عرض الموقع على الخريطة</span></a>
+
+            </div>
+          </div>
+  
+          <ul class="list-unstyled fs-5">
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-id-badge text-secondary me-2"></i>
+              <span>بطاقة تعريف</span>
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-map-marker-alt text-danger me-2"></i>
+              <span>{{item.address}}</span>
+
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-map-marker-alt text-danger me-2"></i>
+              <span>{{item.government}}</span>
+
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-money-bill-wave text-success me-2"></i>
+              <span>الكشف: {{item.price}} جنيه</span>
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-stopwatch text-warning me-2"></i>
+              <span>مدة الانتظار: <span class="text-primary">{{item.visitDuration}} دقيقة</span></span>
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="fas fa-phone-alt text-info me-2"></i>
+              <span>{{item.doctorPhone}} - سعر المكالمة عادية</span>
+            </li>
+            <li>
+              <a href="https://wa.me/2{{item.doctorPhone}}?text=السلام%20عليكم%20أنا%20مهتم%20بخدماتكم" 
+              target="_blank" 
+              style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: background-color 0.3s;">
+              <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
+              تواصل على واتساب
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+         <div class="col-md-3 text-center mb-3 mb-md-0">
+          @if(isLogin)
+          {
+            <a [routerLink]="['/appointment',item.id,item.doctorId]" routerLinkActive="router-link-active">
+              <button  class="btn btn-primary btn-lg w-100 rounded-pill">
+                <i class="fas fa-calendar-times me-2"></i> احجز الآن
+              </button>
+            </a>
+          }
+          @else 
+          {
+            <a  routerLinkActive="router-link-active">
+              <button (click)="ToggleSignUpMessage()" class="btn btn-primary btn-lg w-100 rounded-pill">
+                <i  class="fas fa-calendar-times me-2"></i> احجز الآن
+              </button>
+            </a>
+          }
+
+        </div>
+  
+      </div>
+    </div>
+  </div>
+} 
+}
+@else 
+{
+  <div class="container py-5 w-75">
+    <div class="card p-4 shadow">
+      <div class="row align-items-center">
+        <div class="col-md-12 text-center mb-3 mb-md-0">
+          <h4>يجب تسجيل الدخول للحجز</h4>
+          <a routerLink="/Signup"><button class="btn btn-primary mt-5">انشاء حساب</button></a>
+          <a><button (click)="ToggleSignUpMessage()" class="mx-2 btn btn-danger mt-5">مشاهدة العيادات مجددا</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+

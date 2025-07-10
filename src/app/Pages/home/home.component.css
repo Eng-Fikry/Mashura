@@ -1,0 +1,110 @@
+.main {
+  width: 100%;
+  min-height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  position: relative;
+  transition: background-image 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* شفافية لزيادة وضوح النص */
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.typewriter {
+  color: #fff;
+  font-size: 48px;
+  font-weight: bold;
+  white-space: normal;
+  overflow: visible;
+  animation: none;
+  border: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.anime {
+  width: 50px;
+  height: 80px;
+  border: 2px solid white;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.anime::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  animation: move 2s infinite;
+}
+
+@keyframes move {
+  0% {
+    top: 0px;
+    opacity: 1;
+  }
+  50% {
+    top: 50px;
+    opacity: 0;
+  }
+  100% {
+    top: 0px;
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .typewriter {
+    font-size: 28px;
+    padding: 0 1rem;
+  }
+
+  .anime {
+    width: 35px;
+    height: 60px;
+  }
+
+  .anime::before {
+    width: 6px;
+    height: 6px;
+  }
+
+  .overlay {
+    padding: 1rem;
+  }
+}
+
+
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  .hover-scale:hover {
+    transform: scale(1.03);
+  }
+  
+  .object-fit-cover {
+    object-fit: cover;
+  }

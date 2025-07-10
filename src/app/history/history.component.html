@@ -1,0 +1,36 @@
+<app-navbar-doctor></app-navbar-doctor>
+<form class="my-4" [formGroup]="appointmentForm" (ngSubmit)="submit()">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 d-flex flex-column ">
+        
+        <div class="form-group">
+          <label for="MainComplaint">الشكوى الرئسية:</label>
+          <textarea id="MainComplaint" formControlName="MainComplaint" class="form-control fixed-textarea mt-2" rows="3"></textarea>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="Diagnosis">التشخيص:</label>
+          <textarea id="Diagnosis" formControlName="Diagnosis" class="form-control fixed-textarea mt-2" rows="3"></textarea>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="RequiredTests">الفحوصات المطلوبة:</label>
+          <textarea id="RequiredTests" formControlName="RequiredTests" class="form-control fixed-textarea mt-2" rows="3"></textarea>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="PrescribedTreatment">العلاج الموصوف:</label>
+          <textarea id="PrescribedTreatment" formControlName="PrescribedTreatment" class="form-control fixed-textarea mt-2" rows="3"></textarea>
+        </div>
+
+        <div class="form-group mt-3">
+          <label  for="AdditionalNotes">ملاحظات إضافية:</label>
+          <textarea id="AdditionalNotes" formControlName="AdditionalNotes" class="form-control fixed-textarea mt-2" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3" [disabled]="!appointmentForm.valid">تاكيد الكشف</button>
+      </div>
+    </div>
+  </div>
+</form>

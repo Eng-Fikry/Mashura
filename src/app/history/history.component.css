@@ -1,0 +1,6 @@
+.fixed-textarea {
+  resize: none; /* تعطيل إمكانية تغيير الحجم */
+  height: 60px; /* تحديد ارتفاع ثابت للـ textarea */
+
+}
+

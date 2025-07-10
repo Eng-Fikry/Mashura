@@ -1,0 +1,57 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-login {
+    background-color: var(--cta-orange);
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: var(--secondary-cyan);
+    transform: translateY(-2px);
+}
+
+.btn-signup {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-signup:hover {
+    background-color: #0b7dda;
+    transform: translateY(-2px);
+}
+
+.btn i {
+    margin-left: 8px;
+}
+img{
+    width: 100px;
+}
+.service{
+    text-decoration: none;
+    cursor: pointer;
+    border: solid 1px var(--secondary-gray);
+    padding: 5px;
+}
+.service:hover{
+    background-color: var(--secondary-gray);
+    color: var(--primary-blue) !important;
+}
+nav
+{
+    z-index: 9999999999;
+}
+.active{
+    background-color: var(--secondary-gray);
+    color: var(--primary-blue) !important;
+}

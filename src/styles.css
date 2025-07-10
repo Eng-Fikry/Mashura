@@ -1,1 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-blue: #0077B6;
+    --primary-white: #FFFFFF;
+    --secondary-cyan: #90E0EF;
+    --secondary-gray: #F5F5F5;
+    --cta-orange: #FF8C42;
+    --text-dark: #333333;
+    --text-gray: #555555;
+}
+
+.bg-primary {
+    background-color: var(--primary-blue) !important;
+}
+.bg-white {
+    background-color: var(--primary-white) !important;
+}
+.bg-secondary {
+    background-color: var(--secondary-cyan) !important;
+}
+.bg-gray {
+    background-color: var(--secondary-gray) !important;
+}
+.bg-cta {
+    background-color: var(--cta-orange) !important;
+}
+
+.border-primary {
+    border: 2px solid var(--primary-blue) !important;
+}
+.border-secondary {
+    border: 2px solid var(--secondary-cyan) !important;
+}
+.border-gray {
+    border: 2px solid var(--secondary-gray) !important;
+}
+.border-cta {
+    border: 2px solid var(--cta-orange) !important;
+}
+
+.text-primary {
+    color: var(--primary-blue) !important;
+}
+.text-secondary {
+    color: var(--secondary-cyan) !important;
+}
+.text-gray {
+    color: var(--text-gray) !important;
+}
+.text-dark {
+    color: var(--text-dark) !important;
+}
+.text-cta {
+    color: var(--cta-orange) !important;
+}
+input
+{
+    background-color: white !important;
+    border: var(--primary-blue) solid !important;
+}
+
+/* button
+{
+    background-color: transparent !important;
+    color: #484545 !important;
+    border: var(--primary-blue) solid !important;
+} */
+/* button:hover
+{
+    color: var(--secondary-gray) !important;
+    border: transparent solid !important;
+    background-color: var(--primary-blue) !important;
+} */
+
+#toast-container {
+    z-index: 9999999999999 !important;
+  }

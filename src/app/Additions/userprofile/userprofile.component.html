@@ -1,0 +1,54 @@
+<app-navbar-doctor></app-navbar-doctor>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg rounded-4 p-4">
+        <div class="position-relative text-center mb-4">
+          <a [routerLink]="['/doctorprofile']">
+            <button class="btn btn-outline-primary position-absolute top-0 end-0 m-4">
+              <i class="fas fa-edit"></i> تعديل ملفك الشخصي
+            </button>
+          </a>
+
+          <img [src]="'https://graduationproject2025.runasp.net/' + doctorinfos.profilePicture"
+               alt="User" class="rounded-circle shadow" style="width: 120px; height: 120px; object-fit: cover; border: 3px solid var(--primary-blue);">
+
+          <h4 class="mt-3 fw-bold">{{ doctorinfos.firstName + ' ' + doctorinfos.lastName }}</h4>
+        </div>
+
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item d-flex align-items-center gap-2">
+            <i class="fas fa-envelope text-primary"></i>
+            <span>{{ doctorinfos.email }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center gap-2">
+            <i class="fas fa-phone-alt text-success"></i>
+            <span>{{ doctorinfos.phoneNumber }}</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center gap-2">
+            <i class="fas fa-user-md text-warning"></i>
+            <span>{{ doctorinfos.specialty }}</span>
+          </li>
+        </ul>
+
+        <hr />
+
+        <h5 class="mb-3"><i class="fas fa-key text-secondary"></i> تغيير كلمة المرور</h5>
+        <form [formGroup]="changepassword" (ngSubmit)="changePassword()">
+          <div class="mb-3">
+            <label for="currentPassword" class="form-label">كلمة المرور الحالية</label>
+            <input formControlName="currentPassword" type="password" class="form-control" id="currentPassword" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="newPassword" class="form-label">كلمة المرور الجديدة</label>
+            <input formControlName="newPassword" type="password" class="form-control" id="newPassword" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">تحديث كلمة المرور</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

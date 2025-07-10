@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="container  ">
+
+
+    <div class="row align-items-center ">
+        <div class="col-md-6">
+                <div class="logo d-flex justify-content-center">  
+                    <img class="w-75"src="../../../assets/images/logo2.png" alt="Logo">
+                </div>
+        </div>
+    
+        <div class="col-md-6" [formGroup]="Login">
+                <div class="inputs d-flex flex-column justify-content-center">
+                    <div class="text  text-center">
+                        <p class="fs-1">مرحبا بعودتك</p>
+                        <p class="fs-2">يوم جديد تماما هنا , انه يومك للتشكيل<br>
+                        سجل الدخول وابدا فى مشروعك </p>
+                    </div>
+        
+                    <div>
+                        <label for="email">البريد الالكترونى</label>
+                        <input   type="email" class="form-control rounded-5 " id="email" formControlName="EmailOrPhone">
+                    </div>
+                    <div>
+                        <label for="password">كلمة المرور</label>
+                        <input type="password" class="form-control rounded-5 " id="password" formControlName="password">
+                    </div>
+                    <a [routerLink]="['/forgetpassword']"  routerLinkActive="router-link-active"  class="text-primary text-decoration-none fw-semibold">نسيت كلمة المرور؟</a> <button [disabled]="Login.invalid" (click)="Log()" type="submit" class="btn btn-primary rounded-5 mt-4">تسجيل الدخول</button>
+        
+                </div>
+        
+        </div>
+    </div>
+
+</div>

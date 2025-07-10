@@ -1,0 +1,50 @@
+section
+{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right,#0070ac, #004469);
+    
+}
+input
+{
+    background-color: white !important;
+    margin: 5px 0px;
+    border: 1px solid var(--text-gray) !important;
+    border-radius: 0px;
+}
+.card
+{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+select
+{
+    background-color: white !important;
+    margin: 5px 0px;
+    border: 1px solid var(--text-gray) !important;
+    border-radius: 0px;
+}
+.next
+{
+    background-color: var(--primary-blue) !important;
+    color: white !important;
+    border: solid transparent !important;
+}
+.next:hover
+{
+    background-color: white !important;
+    border: solid var(--text-dark) !important;
+    color: black !important;
+}
+p
+{
+    padding: 0;
+    margin: 0;
+}
+.infos
+{
+    width: 90%;
+    margin-top: 50px;
+    padding: 20px;
+    
+}

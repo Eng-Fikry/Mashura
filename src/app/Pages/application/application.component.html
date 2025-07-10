@@ -1,0 +1,34 @@
+<app-navbar-client></app-navbar-client>
+<div class="container">
+
+    <!-- صورة المشروع -->
+    
+
+    <!-- تفاصيل الحجز -->
+    <div class="details-box">
+        <div class="project-logo">
+            
+            <img src="../../../assets/images/logo2.png" alt="شعار المشروع">
+          </div>
+      
+         @if(appointmentInfos!=null && clinicInfos!=null)
+         {
+             <!-- صور العيادة والطبيب -->
+          <div class="clinic-doctor-images">
+            <img [src]="'https://graduationproject2025.runasp.net/'+clinicInfos?.logo" alt="لوجو العيادة">
+            <img [src]="'https://graduationproject2025.runasp.net/'+doctorinfos?.profilePicture" alt="لوجو العيادة">
+
+          </div>
+          
+      <h2>تم تأكيد الحجز بنجاح</h2>
+      <div class="detail">رقم المريض: <span>{{appointmentInfos.id}}</span></div>
+      <div class="detail">اسم المريض: <span>{{appointmentInfos.patientName}}</span></div>
+      <div class="detail">اسم الطبيب: <span>{{appointmentInfos.doctorName}}</span></div>
+      <div class="detail">العيادة: <span>{{clinicInfos.name}}</span></div>
+      <div class="detail">موعد الحجز: <span>{{appointmentInfos.day}} القادم {{appointmentInfos.time}}</span></div>
+         }
+         <a routerLink="/HomeClient"><button class="btn btn-primary ">الصفحة الرئيسية</button></a>
+
+    </div>
+
+  </div>

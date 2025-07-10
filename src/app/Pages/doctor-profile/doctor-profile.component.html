@@ -1,0 +1,58 @@
+<p class="fs-1">ادخل المعلومات الخاصة بك</p>
+<div class="container">
+    <form action="" [formGroup]="doctorForm" (ngSubmit)="submit()" >
+        @if(doctor != null)
+        {
+            <div class="row g-3">
+            
+                <div class="col-md-6" >
+                    <div class="first-name">
+                        <input #firstName value="{{doctor.firstName}}"  class="form-control x" placeholder="الاسم الاول" type="text" >
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="last-name">
+                        <input #lastName value="{{doctor.lastName}}"  class="form-control x" placeholder="الاسم الاخير" type="text">
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div  class="speciality">
+                        <select formControlName="specialtyId" class="form-control" name="" id="">
+                            <option value="" disabled selected hidden>التخصص</option>
+                            @for (item of spec; track $index)
+                            {
+                                <option value="{{item.id}}"> {{item.name}} </option>
+                            }
+                            
+                        </select>
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="image">
+                        <input formControlName="profilePicture" class="form-control" placeholder="صورة البروفايل" type="file" (change)="onFileSelected($event)">
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="phone">
+                        <input #phoneNumber value="{{doctor.phoneNumber}}" class="form-control x" placeholder="رقم الهاتف" type="text">
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="email">
+                        <input #email value="{{doctor.email}}" class="form-control x" placeholder="البريد الالكتروني" type="email">
+    
+                    </div>
+                </div>
+    
+                <button type="submit" class="btn btn-primary">حفظ</button>
+            
+        </div>
+        }
+    </form>
+</div>
+

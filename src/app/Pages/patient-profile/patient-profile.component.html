@@ -1,0 +1,56 @@
+<p class="fs-1">ادخل المعلومات الخاصة بك</p>
+<div class="container">
+    <form action="" [formGroup]="patientForm" (ngSubmit)="submit()">
+        @if(patient != null)
+        {
+            <div class="row g-3">
+            
+                <div class="col-md-6" >
+                    <div class="first-name">
+                        <input #firstName value="{{patient.firstName}}" class="form-control x" placeholder="الاسم الاول" type="text" hidden>
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="last-name">
+                        <input #lastName value="{{patient.lastName}}" class="form-control x" placeholder="الاسم الاخير" type="text" hidden>
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div  class="gender">
+                        <select formControlName="gender" class="form-control" name="gender">
+                            <option value="" disabled selected hidden>الجنس</option>
+                            <option value="ذكر">ذكر</option>
+                            <option value="أنثى">أنثى</option>
+                        </select>
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="image">
+                        <input formControlName="address" class="form-control" placeholder="العنوان" type="text">
+    
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="phone">
+                        <input #phoneNumber value="{{patient.phoneNumber}}" class="form-control x" placeholder="رقم الهاتف" type="text" hidden>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="email">
+                        <input #email value="{{patient.email}}" class="form-control x" placeholder="البريد الالكتروني" type="email" hidden>
+    
+                    </div>
+                </div>
+    
+                <button [disabled]="!patientForm.valid"  type="submit" class="btn btn-primary">حفظ</button>
+            
+        </div>
+        }
+    </form>
+    </div>
+
+

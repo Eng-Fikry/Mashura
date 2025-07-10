@@ -1,0 +1,57 @@
+@if(role == 'Doctor')
+{
+  <app-navbar-doctor></app-navbar-doctor>
+}
+@else {
+  <app-navbar-client></app-navbar-client>
+}
+<div class="container my-5">
+
+  @if(history.length == 0)
+  {
+    <div class="text-center fs-1 text-danger">
+                <p>لايوجد تاريخ للمريض</p>
+                <img class="w-50" src="../../../assets/images/noData.jpg" alt="">
+              </div>
+  }
+    @for (item of history; track $index)
+     {
+       <div class="card shadow-lg rounded-4 border-0 my-4">
+  <div class="card-header text-center bg-primary text-white rounded-top-4">
+    <h4 class="card-title custom-title">سجل المريض</h4>
+  </div>
+  <div class="card-body">
+    <div class="text-center mb-4">
+      <img src="../../assets/images/logo2.png" alt="لوجو الموقع" class="patient-image rounded-circle shadow-lg border border-5 border-primary">
+    </div>
+    <h5 class="card-title text-center mb-4 custom-title-2">بيانات المريض</h5>
+    <div class="row">
+      <div class="col-12 mb-3">
+        <i class="fas fa-calendar-alt icon-color"></i> <strong>تاريخ الزيارة:</strong> {{item.visitDate }}
+      </div>
+      <div class="col-12 mb-3">
+        <i class="fas fa-head-side-virus icon-color"></i> <strong>الشكوى الرئيسية:</strong> {{item.mainComplaint }}
+      </div>
+      <div class="col-12 mb-3">
+        <i class="fas fa-stethoscope icon-color"></i> <strong>التشخيص:</strong> {{item.diagnosis}}
+      </div>
+      <div class="col-12 mb-3">
+        <i class="fas fa-flask icon-color"></i> <strong>الفحوصات المطلوبة:</strong> {{item.requiredTests}}
+      </div>
+      <div class="col-12 mb-3">
+        <i class="fas fa-pills icon-color"></i> <strong>العلاج الموصوف:</strong> {{item.prescribedTreatment}}
+      </div>
+      <div class="col-12 mb-3">
+        <i class="fas fa-notes-medical icon-color"></i> <strong>ملاحظات إضافية:</strong> {{item.additionalNotes}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+     }
+  </div>

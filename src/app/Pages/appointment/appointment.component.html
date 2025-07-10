@@ -1,0 +1,58 @@
+<app-navbar-client></app-navbar-client>
+<section class="d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto" [formGroup]="appointmentForm">
+                <div class="">
+                  <p class="fs-1 text-white text-center">احصل على موعدك</p>
+              
+                  <!-- بدون فراغ بين الكروت -->
+                  <div class="d-flex flex-column flex-lg-row">
+              
+                    <!-- الكرت الأول -->
+                    <div class="card bg-white flex-fill p-3 rounded-0 border-0 d-flex flex-column justify-content-evenly" style="flex-basis: 70%;">
+                      <select class="form-control mb-2" formControlName="dayOfWeek" (change)="selectDay($event)">
+                        <option value="">يرجى اختيار اليوم</option>
+                        @for (item of days; track $index) {
+                          <option [attr.data-id]="$index" [value]="item">{{ item }}</option>
+                        }
+                      </select>
+                    
+                      <select class="form-control mb-2" formControlName="time">
+                        <option value="" disabled selected hidden>الموعد</option>
+                        @for (item of times; track $index) {
+                          <option value="{{item}}">{{item}}</option>
+                        }
+                      </select>
+              
+                      <div class="d-flex justify-content-between mt-2">
+                        <button (click)="back()" class="btn btn-primary px-3">الرجوع</button>
+                        <button (click)="submit()" class="btn btn-primary next px-3">التالي</button>
+                      </div>
+                    </div>
+              
+                    <!-- الكرت الثاني -->
+                    <div class="card bg-white p-3 rounded-0 border-0" style="flex-basis: 30%;">
+                      <div class="infos text-center">
+                        <img class="w-75 rounded-circle mb-2" [src]="'https://graduationproject2025.runasp.net/' +Clinic?.logo" alt="">
+                        <h4 class="text-center text-primary mb-1">{{ Clinic?.name }}</h4>
+                        <p class="text-center mb-1">{{ Clinic?.address }}</p>
+                        <a 
+                          [href]="'https://www.google.com/maps?q=' + Clinic?.latitude + ',' + Clinic?.longitude" 
+                          target="_blank" 
+                          class="text-decoration-none text-primary d-inline-flex align-items-center gap-2 mt-1">
+                          <i class="fas fa-map-marked-alt"></i><span>عرض الموقع على الخريطة</span>
+                        </a>
+                      </div>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+              
+              
+        </div>
+
+    
+    </div>
+</section>

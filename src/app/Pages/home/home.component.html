@@ -1,0 +1,42 @@
+<app-navbar-doctor></app-navbar-doctor>
+<section class="main position-relative vh-100 " #mainSection>
+ 
+  <div class="overlay d-flex flex-column align-items-center justify-content-center text-center">
+    <h1 class="typewriter mb-4">طور من نشاط عيادتك مع <span class="text-primary">مشورة</span></h1>
+    <p class="lead text-light">منصة متكاملة لإدارة مواعيد العيادات بسهولة وكفاءة</p>
+    <button (click)="scrollToSection()" class="btn btn-outline-light mt-4 px-5 py-2 rounded-pill fw-bold">
+      <i class="bi bi-calendar-check"></i> جرّب الآن
+    </button>
+    
+    <div class="anime mt-5" title="انزل لعرض المميزات 👇"></div>
+  </div>
+</section>
+
+<section class="mt-5" id="spec">
+   
+    <div class="container">
+        <div class="row g-4">
+          @for (item of spec; track $index) {
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="card shadow-sm border-0 rounded-4 h-100 text-center hover-scale">
+                <img
+                  [src]="'https://graduationproject2025.runasp.net/' + item?.picture"
+                  alt="صورة الدكتورة"
+                  class="card-img-top object-fit-cover rounded-top-4"
+                  style="height: 200px;"
+                />
+                <div class="card-body">
+                  <h5 class="card-title fw-semibold text-primary">{{ item.name }}</h5>
+                  <a [routerLink]="['/Clinics', item.id]">
+                    <button class="btn btn-outline-primary mt-2 rounded-pill px-4">تصفح العيادات</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+      
+
+</section>
+

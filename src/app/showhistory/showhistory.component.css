@@ -1,0 +1,188 @@
+.icon-color {
+      color: #007bff; /* لون الأيقونات */
+    }
+    .card-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .patient-image {
+      max-width: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+  i
+  {
+    margin-left: 8px;
+  }  
+
+.card {
+  border-radius: 20px; /* الزوايا تكون دائرية بشكل أكثر نعومة */
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* تأثير الظل بشكل أنيق */
+}
+
+.card:hover {
+  transform: scale(1.05); /* تكبير الكارد عند التمرير */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* إضافة ظل أكبر */
+}
+
+.card-header {
+  background: linear-gradient(135deg, #0062cc, #00bcd4); /* تدرج ألوان عصري */
+  border-radius: 20px 20px 0 0;
+  padding: 30px;
+}
+
+.card-header .card-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: white;
+}
+
+.patient-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0062cc;
+  text-transform: uppercase;
+  border-bottom: 3px solid #00bcd4;
+  padding-bottom: 15px;
+}
+
+.patient-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  border: 4px solid #00bcd4; /* حدود عصرية للصورة */
+}
+
+.icon-color {
+  color: #0062cc;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.icon-color:hover {
+  color: #00bcd4; /* تأثير تغيير اللون عند التمرير */
+}
+
+.card-body .row div {
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-body .row div:hover {
+  background-color: #f1faff;
+  transform: translateX(10px); /* حركة انتقالية عند التمرير */
+}
+
+.card-body .row div strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.card-body .row div i {
+  margin-right: 10px;
+}
+
+.card-body .row div:last-child {
+  margin-bottom: 0;
+}
+
+.custom-title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #007bff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  padding: 10px;
+}
+
+.custom-title-2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #343a40;
+  letter-spacing: 1px;
+  padding: 8px;
+}
+
+.custom-title:hover {
+  color: #0056b3;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  background: linear-gradient(to right, #007bff, #00d2ff); 
+  border-radius: 0.25rem;
+}
+
+.card-body {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.icon-color {
+  color: #007bff;
+  margin-right: 8px;
+}
+
+.patient-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body .row div {
+  font-size: 1.1rem;
+  color: #495057;
+}
+
+.card-body .row div i {
+  font-size: 1.2rem;
+}
+
+.card-body .row div strong {
+  color: #007bff;
+}
+
+.card-body {
+  background-color: #ffffff; /* خلفية بيضاء */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف للكارد */
+}
+@keyframes titleAnim {
+  0% {
+    transform: scale(1); 
+    opacity: 0; 
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1; 
+  }
+  100% {
+    transform: scale(1); 
+    opacity: 0; 
+  }
+}
+
+.custom-title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* الخط الافتراضي */
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #007bff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  animation: titleAnim 4s ease-in-out infinite;
+}
+

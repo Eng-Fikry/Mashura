@@ -1,0 +1,29 @@
+.card:hover {
+    transform: translateY(-10px); /* رفع الكارد لأعلى */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* إضافة ظل لطيف */
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .card-text {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+
+  .social-icons a {
+    font-size: 1.25rem;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }

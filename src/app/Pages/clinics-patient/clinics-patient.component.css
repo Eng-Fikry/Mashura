@@ -1,0 +1,147 @@
+:host {
+    background-color: #f2f2f2;
+  }
+  .card {
+    border-radius: 20px;
+  }
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+  }
+  .star-rating {
+    color: gold;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-login {
+    background-color: var(--cta-orange);
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: var(--secondary-cyan);
+    transform: translateY(-2px);
+}
+
+.btn-signup {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-signup:hover {
+    background-color: #0b7dda;
+    transform: translateY(-2px);
+}
+
+.btn i {
+    margin-left: 8px;
+}
+img{
+    width: 100px;
+}
+.service{
+    text-decoration: none;
+    cursor: pointer;
+    border: solid 1px var(--secondary-gray);
+    padding: 5px;
+}
+.service:hover{
+    background-color: var(--secondary-gray);
+    color: var(--primary-blue) !important;
+}
+nav
+{
+
+  margin: 0 !important;
+    z-index: 9999999999;
+}
+i
+{
+  margin-left: 5px;
+}
+/* From Uiverse.io by gharsh11032000 */ 
+.dropdown-container {
+  position: relative;
+  width: 280px; /* ← حجم مناسب يمكنك تغييره */
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-selected {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.dropdown-selected svg {
+  width: 16px;
+  height: 16px;
+  fill: #333;
+  transition: transform 0.4s ease;
+}
+
+.dropdown-container.open .dropdown-selected svg {
+  transform: rotate(180deg);
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 250px; /* ← الارتفاع الأقصى للقائمة */
+  overflow-y: auto;  /* ← Scroll داخلي فقط */
+  background-color: #fff;
+  border: 1px solid #0a3cff;
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  text-align: center;
+  transition:  0.3s;
+  cursor: pointer;
+  width: 0%;
+}
+
+.dropdown-item:hover {
+  background-color: #0a3cff;
+  color: white;
+  width: 100%;
+}
+

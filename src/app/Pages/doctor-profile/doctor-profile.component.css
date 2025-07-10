@@ -1,0 +1,17 @@
+input,select
+{
+    background-color: white !important;
+    border-radius: 0px !important;
+    border: solid 2px var(--text-gray) !important;
+}
+.x {
+  background-color: #f0f0f0 !important; 
+  opacity: 0.7 !important; 
+  transition: background-color 0.3s, opacity 0.3s !important;
+}
+
+.x:focus {
+  background-color: #ffffff !important; 
+  opacity: 1 !important;
+  border-color: #007bff !important; 
+}

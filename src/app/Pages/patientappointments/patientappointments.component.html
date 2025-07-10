@@ -1,0 +1,141 @@
+<div class="fixed-top">
+  <app-navbar-client></app-navbar-client>
+</div>
+
+<div class="main-content container mt-5 pt-5">
+  <ul class="nav nav-tabs gap-1" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+        data-bs-target="#home-tab-pane" type="button" role="tab"
+        aria-controls="home-tab-pane" aria-selected="true">محجوز</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+        data-bs-target="#profile-tab-pane" type="button" role="tab"
+        aria-controls="profile-tab-pane" aria-selected="false">الكشوفات السابقة</button>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-3 vh-100" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+      <div class="row g-3">
+        <!-- كارد 1 -->
+        @for (item of patientAppointments(); track $index) {
+        @if(item.status == 'Confirmed') {
+          <div class="col-md-6">
+            <div class="card custom-card shadow-sm p-3 border-0 rounded-4 bg-light">
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1 me-3">
+                  <h6 class="mb-2 text-primary fw-bold">
+                    <i class="fas fa-hospital me-2 text-info"></i> رقمك :{{ item.id }}
+                  </h6>
+                  <h5 class="mb-2 text-primary fw-bold">
+                    <i class="fas fa-user me-2 text-dark mx-1"></i>{{ item.patientName }}
+                  </h5>
+                  @if(full()?.[$index]) {
+                    <h6 class="mb-2 text-secondary">
+                      <i class="fas fa-clinic-medical me-2"></i>{{full()[$index].name || 'العيادة غير محددة' }}
+                    </h6>
+                  }
+  
+                  <ul class="list-unstyled text-muted mb-3">
+                    <li>
+                      <i class="fas fa-calendar-alt me-2 text-info mx-1"></i>{{ item.day }}
+                      <i class="fas fa-clock ms-3 me-2 text-secondary mx-1"></i>{{ item.time }}
+                    </li>
+                  </ul>
+                  <div class="d-flex gap-2">
+                    <button (click)="ignore(item.id)" class="btn btn-outline-danger px-4 rounded-pill">
+                      <i class="fas fa-hourglass-half me-2"></i> حذف الموعد
+                    </button>
+                    <a [routerLink]="['/updateappointment', item.clinicId, item.doctorId, item.id]">
+                      <button class="btn btn-outline-info px-4 rounded-pill">
+                        <i class="fas fa-edit me-2"></i> تعديل الموعد
+                      </button>
+                    </a>
+  
+                    <!-- زر إرسال رسالة عبر واتساب -->
+                    @if (full()[$index]?.phoneNumber) {
+                    <a [href]="'https://wa.me/' + full()[$index].phoneNumber" target="_blank">
+                      <button class="btn btn-outline-success px-4 rounded-pill">
+                        <i class="fab fa-whatsapp me-2"></i> إرسال رسالة عبر واتساب
+                      </button>
+                    </a>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+        }
+        
+        <!-- إذا كانت مواعيد Confirmed غير موجودة -->
+        @if (ConfirmedAppointments().length == 0) {
+          <div class="text-center fs-1 text-danger">
+            <p>لايوجد حجوزات لعرضها</p>
+            <img class="w-50" src="../../../assets/images/noData.jpg" alt="No data available">
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="row g-3">
+        <!-- كارد 2 -->
+        @for(item of patientAppointments(); track $index) {
+        @if(item.status == 'Completed') {
+          <div class="col-md-4">
+            <div class="card custom-card shadow-sm p-3 border-0 rounded-4 bg-light">
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1 me-3">
+                  <h5 class="mb-2 text-primary fw-bold">
+                    <i class="fas fa-user me-2 text-dark mx-1"></i>{{ item.patientName }}
+                  </h5>
+                  
+                  @if(full()?.[$index]) {
+                    <h6 class="mb-2 text-secondary">
+                      <i class="fas fa-clinic-medical me-2"></i>{{full()[$index].name || 'العيادة غير محددة' }}
+                    </h6>
+                  }
+                  <ul class="list-unstyled text-muted mb-3">
+                    <li>
+                      <i class="fas fa-calendar-alt me-2 text-info mx-1"></i>{{ item.day }}
+                      <i class="fas fa-clock ms-3 me-2 text-secondary mx-1"></i>{{ item.time }}
+                    </li>
+                  </ul>
+                  <div class="d-flex gap-2">
+                    <a [routerLink]="['/showhistory',item.patientId]">
+                      <button class="btn btn-outline-info px-4 rounded-pill">
+                      <i class="fas fa-hourglass-half me-2"></i> عرض سجلك
+                    </button>
+                    </a>
+  
+                    <!-- زر إرسال رسالة عبر واتساب -->
+                    @if (full()[$index]?.phoneNumber) {
+                    <a [href]="'https://wa.me/' + full()[$index].phoneNumber" target="_blank">
+                      <button class="btn btn-outline-success px-4 rounded-pill">
+                        <i class="fab fa-whatsapp me-2"></i> إرسال رسالة عبر واتساب
+                      </button>
+                    </a>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        }
+        }
+
+        <!-- إذا كانت مواعيد Done غير موجودة -->
+        @if (DoneAppointments().length == 0) {
+          <div class="text-center fs-1 text-danger">
+            <p>لايوجد حجوزات لعرضها</p>
+            <img class="w-50" src="../../../assets/images/noData.jpg" alt="">
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

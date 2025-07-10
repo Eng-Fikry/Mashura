@@ -1,0 +1,89 @@
+section
+{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right,#0070ac, #004469);
+    
+}
+input
+{
+    background-color: white !important;
+    margin: 5px 0px;
+    border: 1px solid var(--text-gray) !important;
+    border-radius: 0px;
+}
+.card
+{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+select
+{
+    background-color: white !important;
+    margin: 5px 0px;
+    border: 1px solid var(--text-gray) !important;
+    border-radius: 0px;
+}
+.next
+{
+    background-color: var(--primary-blue) !important;
+    color: white !important;
+    border: solid transparent !important;
+}
+.next:hover
+{
+    background-color: white !important;
+    border: solid var(--text-dark) !important;
+    color: black !important;
+}
+p
+{
+    padding: 0;
+    margin: 0;
+}
+.infos
+{
+    background-color: rgb(204, 204, 204);
+    width: 90%;
+    margin-top: 50px;
+    padding: 20px;
+    
+}
+.upload-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+  
+  .upload-circle:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .upload-circle i {
+    font-size: 24px;
+    color: #555;
+  }
+  
+  .upload-circle input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .upload-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
